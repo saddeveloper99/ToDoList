@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "todolist"
+version = "0.1.0"
+description = ""
+authors = ["Kim Gwang woon <misili304@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+django-dotenv = "^1.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
