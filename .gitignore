@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,python,django,macos,linux,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,windows,python,django,macos,linux,pycharm
-
+**/migrations
 ### Django ###
 *.log
 *.pot
