@@ -23,3 +23,21 @@ class UserView(APIView):
         user = get_object_or_404(CustomUser, id=user_id)
         serializer = UserProfileSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, user_id):
+        user = get_object_or_404(CustomUser, id=user_id)
+        if request.user == user:
+            serializer = UserProfileSerializer(user, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, user_id):
+        user = get_object_or_404(CustomUser, id=user_id)
+        if request.user == user:
+            user.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
